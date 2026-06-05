@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ExternalLink } from "lucide-react";
 import logoUrl from "@/assets/emerge-logo-transparent.png";
 import { sections } from "@/lib/sections";
 
@@ -65,8 +66,17 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-5 text-xs text-white/50 md:px-8">
-          © {new Date().getFullYear()} EMerge Sri Lanka. All rights reserved.
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between md:px-8">
+          <span>© {new Date().getFullYear()} EMerge Sri Lanka. All rights reserved.</span>
+          <a
+            href="https://www.kryvazent.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-semibold text-white underline decoration-[var(--color-crimson)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--color-crimson-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+          >
+            Developed by Kryvazent
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </footer>
