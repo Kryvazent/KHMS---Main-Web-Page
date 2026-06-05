@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Wrench, Users, Layers, Download, BookOpen, Activity, Smartphone, PlayCircle } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import logoMarkUrl from "@/assets/emerge-logo-mark.png";
 import { sections } from "@/lib/sections";
 
 export const Route = createFileRoute("/")({
@@ -126,7 +127,7 @@ function Hero() {
       <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-20" viewBox="0 0 1600 400" preserveAspectRatio="none">
         <path className="ecg-line" d="M0 200 L400 200 L440 200 L460 120 L480 280 L500 80 L520 320 L540 200 L900 200 L940 200 L960 100 L980 300 L1000 200 L1600 200" stroke="#DC143C" strokeWidth="2.5" fill="none" strokeDasharray="2000" />
       </svg>
-      <div className="relative mx-auto max-w-7xl px-4 py-24 md:px-8 md:py-32">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:px-8 md:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,26rem)]">
         <div className="max-w-3xl">
           <p className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white/90 backdrop-blur">
             Educate • Elevate • Excel
@@ -144,6 +145,15 @@ function Hero() {
             <a href="#offline-app" className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-bold text-white backdrop-blur hover:bg-white/10">
               <Download className="h-4 w-4" /> Download the Offline App
             </a>
+          </div>
+        </div>
+        <div className="hidden justify-center lg:flex lg:justify-end">
+          <div className="rounded-lg bg-white/95 p-4 shadow-2xl shadow-black/30 ring-1 ring-white/30 md:p-5">
+            <img
+              src={logoMarkUrl}
+              alt="EMerge logo mark"
+              className="h-48 w-48 object-contain sm:h-56 sm:w-56 md:h-72 md:w-72 lg:h-80 lg:w-80"
+            />
           </div>
         </div>
       </div>
