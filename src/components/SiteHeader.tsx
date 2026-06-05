@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
-import logo from "@/assets/emerge-logo.png.asset.json";
+import logoUrl from "@/assets/emerge-logo-transparent.png";
 
 type NavItem = {
   label: string;
@@ -41,7 +41,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 md:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2">
-          <img src={logo.url} alt="EMerge" className="h-10 w-auto md:h-12" />
+          <img src={logoUrl} alt="EMerge" className="h-10 w-auto md:h-12" />
         </Link>
 
         <nav className="hidden items-center gap-2 lg:flex">

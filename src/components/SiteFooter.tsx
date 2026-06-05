@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/emerge-logo.png.asset.json";
+import logoUrl from "@/assets/emerge-logo-transparent.png";
 import { sections } from "@/lib/sections";
 
 export function SiteFooter() {
@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-4 md:px-8">
         <div>
           <div className="rounded-lg bg-white p-3 inline-block">
-            <img src={logo.url} alt="EMerge" className="h-10 w-auto" />
+            <img src={logoUrl} alt="EMerge" className="h-10 w-auto" />
           </div>
           <p className="mt-4 text-sm text-white/70 max-w-xs">
             Empowering Sri Lanka in Emergencies. Educate • Elevate • Excel.
