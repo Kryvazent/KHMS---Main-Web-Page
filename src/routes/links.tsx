@@ -18,9 +18,9 @@ export const Route = createFileRoute("/links")({
   head: () => ({
     meta: [
       { title: "Important Links — EMerge Sri Lanka" },
-      { name: "description", content: "Curated FOAMed and emergency medicine references — LITFL, CoreEM, IFEM Academy and more." },
+      { name: "description", content: "Curated Medical Education and emergency medicine references — LITFL, CoreEM, IFEM Academy and more." },
       { property: "og:title", content: "Important Links — EMerge Sri Lanka" },
-      { property: "og:description", content: "Curated FOAMed and EM references." },
+      { property: "og:description", content: "Curated Medical Education and EM references." },
       { property: "og:url", content: s.route },
     ],
     links: [{ rel: "canonical", href: s.route }],

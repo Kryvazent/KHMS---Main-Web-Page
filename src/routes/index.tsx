@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       { title: "EMerge — Emergency Care for the Real World" },
       { name: "description", content: "Practical, resource-adapted emergency medicine protocols and open-access education for frontline clinicians in low- and middle-income countries." },
       { property: "og:title", content: "EMerge — Emergency Care for the Real World" },
-      { property: "og:description", content: "Resource-adapted protocols, triage tools and FOAMed for the frontline." },
+      { property: "og:description", content: "Resource-adapted protocols, triage tools and Medical Education for the frontline." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -184,7 +184,7 @@ function Pillars() {
   const cols = [
     { icon: Wrench, title: "Resource-Stratified Protocols", body: "Step-by-step algorithms for trauma, infectious emergencies, and toxicology, tailored to the supplies you actually have on hand.", cta: "Explore Protocols", to: "/resources" },
     { icon: Activity, title: "Triage & Operations", body: "Tools to organize the chaos. Validated low-resource triage scales, mass-casualty plans, and departmental workflows.", cta: "Improve Your ED", to: "/disaster-management" },
-    { icon: BookOpen, title: "FOAMed & Training", body: "Bite-sized infographics, low-bandwidth video tutorials, and POCUS guides designed for on-shift quick reference.", cta: "Start Learning", to: "/teaching" },
+    { icon: BookOpen, title: "Medical Education & Training", body: "Bite-sized infographics, low-bandwidth video tutorials, and POCUS guides designed for on-shift quick reference.", cta: "Start Learning", to: "/teaching" },
   ];
   return (
     <section className="bg-secondary/40 py-20 md:py-24">
