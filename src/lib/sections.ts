@@ -12,6 +12,9 @@ import {
   Stethoscope,
   Sparkles,
   Mail,
+  Lightbulb,
+  Images,
+  PlaneTakeoff,
   type LucideIcon,
 } from "lucide-react";
 
@@ -42,12 +45,36 @@ export const sections: Section[] = [
     accent: "crimson",
   },
   {
+    id: "innovative-teaching",
+    title: "Innovative Teaching Hub",
+    intro: "Fifteen EMerge teaching techniques with photos, methods and expandable pages.",
+    route: "/innovative-teaching",
+    icon: Lightbulb,
+    accent: "crimson",
+  },
+  {
     id: "workshops",
     title: "Workshops & Events",
     intro: "ECA, Advanced Airway Day and recurring EM Learning Days.",
     route: "/workshops",
     icon: CalendarDays,
     accent: "navy",
+  },
+  {
+    id: "em-diaries",
+    title: "EM Diaries",
+    intro: "Dated programme photos, field notes and memories from EMerge activities.",
+    route: "/em-diaries",
+    icon: Images,
+    accent: "navy",
+  },
+  {
+    id: "icem-2026",
+    title: "EMerge at ICEM 2026",
+    intro: "A dedicated space for ICEM 2026 updates, sessions, media and highlights.",
+    route: "/icem-2026",
+    icon: PlaneTakeoff,
+    accent: "crimson",
   },
   {
     id: "resources",

@@ -2,7 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SectionPage } from "@/components/SectionPage";
 import { findSection } from "@/lib/sections";
-import { Hammer, Rocket, Stethoscope, HeartPulse, Brain, Bot, MessageSquare, Activity } from "lucide-react";
+import {
+  Hammer,
+  Rocket,
+  Stethoscope,
+  HeartPulse,
+  Brain,
+  Bot,
+  MessageSquare,
+  Activity,
+  ExternalLink,
+  Smartphone,
+} from "lucide-react";
+import { appLinks } from "@/lib/appLinks";
 
 const s = findSection("ai-apps");
 
@@ -69,6 +81,8 @@ function AiAppsPage() {
   const items = tab === "under" ? underDevelopment : fullyDeveloped;
   return (
     <SectionPage section={s}>
+      <AppLinksPanel />
+
       <div className="mb-8 inline-flex rounded-full border border-border bg-secondary/50 p-1">
         <TabBtn active={tab === "under"} onClick={() => setTab("under")}>
           <Hammer className="h-4 w-4" /> Under Development
@@ -80,17 +94,74 @@ function AiAppsPage() {
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((i) => (
-          <article key={i.title} className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <article
+            key={i.title}
+            className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm"
+          >
             <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-crimson)] text-white">
               <i.icon className="h-5 w-5" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-navy)]">{i.status}</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-navy)]">
+              {i.status}
+            </span>
             <h3 className="mt-1 text-lg font-bold text-foreground">{i.title}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{i.body}</p>
           </article>
         ))}
       </div>
     </SectionPage>
+  );
+}
+
+function AppLinksPanel() {
+  return (
+    <section className="mb-10 rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
+      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-crimson)]">
+            App Launch Links
+          </p>
+          <h2 className="mt-2 text-2xl font-black tracking-tight">EMerge Apps</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+            Quick access buttons are ready for the external app and First Aid app once the final
+            URLs are available.
+          </p>
+        </div>
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-navy)] text-white">
+          <Smartphone className="h-7 w-7" />
+        </div>
+      </div>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <AppLinkCard link={appLinks.externalApp} />
+        <AppLinkCard link={appLinks.firstAidApp} />
+      </div>
+    </section>
+  );
+}
+
+function AppLinkCard({ link }: { link: (typeof appLinks)[keyof typeof appLinks] }) {
+  return (
+    <a
+      href={link.href}
+      aria-disabled={!link.isLive}
+      onClick={(event) => {
+        if (!link.isLive) event.preventDefault();
+      }}
+      className={`rounded-2xl border border-border p-5 ${
+        link.isLive
+          ? "bg-secondary/50 hover:border-[var(--color-crimson)]"
+          : "cursor-not-allowed bg-secondary/40"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="text-base font-black">{link.label}</h3>
+        <ExternalLink className="h-4 w-4 text-[var(--color-crimson)]" />
+      </div>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground">{link.description}</p>
+      <span className="mt-4 inline-flex rounded-full bg-card px-3 py-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+        {link.status}
+      </span>
+    </a>
   );
 }
 
