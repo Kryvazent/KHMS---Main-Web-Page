@@ -1,7 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionPage } from "@/components/SectionPage";
 import { findSection } from "@/lib/sections";
-import { GraduationCap, Stethoscope, HeartPulse, Users, BookMarked } from "lucide-react";
+import {
+  GraduationCap,
+  Stethoscope,
+  HeartPulse,
+  Users,
+  BookMarked,
+  ArrowRight,
+  Lightbulb,
+} from "lucide-react";
 
 const s = findSection("teaching");
 
@@ -47,19 +55,52 @@ export const Route = createFileRoute("/teaching")({
   head: () => ({
     meta: [
       { title: "Teaching Hub — EMerge Sri Lanka" },
-      { name: "description", content: "Structured learning for doctors, nurses, HCAs and PAs — Registrars' Forum, EM Learning Days and simulation training." },
+      {
+        name: "description",
+        content:
+          "Structured learning for doctors, nurses, HCAs and PAs — Registrars' Forum, EM Learning Days and simulation training.",
+      },
       { property: "og:title", content: "Teaching Hub — EMerge Sri Lanka" },
-      { property: "og:description", content: "Structured learning for doctors, nurses, HCAs and PAs." },
+      {
+        property: "og:description",
+        content: "Structured learning for doctors, nurses, HCAs and PAs.",
+      },
       { property: "og:url", content: s.route },
     ],
     links: [{ rel: "canonical", href: s.route }],
   }),
   component: () => (
     <SectionPage section={s}>
+      <Link
+        to="/innovative-teaching"
+        className="mb-8 flex flex-col gap-5 rounded-2xl border border-[var(--color-crimson)]/25 bg-[var(--color-crimson)]/5 p-6 transition-all hover:-translate-y-1 hover:shadow-lg md:flex-row md:items-center md:justify-between"
+      >
+        <div className="flex gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--color-crimson)] text-white">
+            <Lightbulb className="h-6 w-6" />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-crimson)]">
+              Highlight
+            </p>
+            <h2 className="mt-1 text-xl font-black">Innovative Teaching Hub</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              Photo-led methods from the uploaded Innovative Teaching document.
+            </p>
+          </div>
+        </div>
+        <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-crimson)]">
+          Open hub <ArrowRight className="h-4 w-4" />
+        </span>
+      </Link>
+
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {tracks.map((t) => (
-          <article key={t.title} id={t.id} className="scroll-mt-24 rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md">
-
+          <article
+            key={t.title}
+            id={t.id}
+            className="scroll-mt-24 rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+          >
             <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--color-navy)] text-white">
               {t.icon}
             </div>
@@ -67,7 +108,10 @@ export const Route = createFileRoute("/teaching")({
             <p className="mt-2 text-sm text-muted-foreground">{t.body}</p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {t.items.map((i) => (
-                <li key={i} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-foreground/70">
+                <li
+                  key={i}
+                  className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-foreground/70"
+                >
                   {i}
                 </li>
               ))}
@@ -79,8 +123,8 @@ export const Route = createFileRoute("/teaching")({
       <div className="mt-12 rounded-2xl bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-deep)] p-8 text-white">
         <h2 className="text-xl font-bold">Special programs</h2>
         <p className="mt-2 text-white/80">
-          <strong>ECA Training</strong> and <strong>Critical Care Seminars</strong> — flagship deep-dives
-          delivered alongside the Continuous Learning WhatsApp community.
+          <strong>ECA Training</strong> and <strong>Critical Care Seminars</strong> — flagship
+          deep-dives delivered alongside the Continuous Learning WhatsApp community.
         </p>
       </div>
     </SectionPage>

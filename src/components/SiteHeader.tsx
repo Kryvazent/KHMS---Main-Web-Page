@@ -14,6 +14,7 @@ const nav: NavItem[] = [
     label: "Teaching",
     to: "/teaching",
     children: [
+      { label: "Innovative Teaching Hub", to: "/innovative-teaching" },
       { label: "Post Graduate", to: "/teaching", hash: "post-graduate" },
       { label: "Doctors", to: "/teaching", hash: "doctors" },
       { label: "Nurses", to: "/teaching", hash: "nurses" },
@@ -29,6 +30,8 @@ const nav: NavItem[] = [
       { label: "Advanced Airway", to: "/workshops", hash: "advanced-airway" },
     ],
   },
+  { label: "EM Diaries", to: "/em-diaries" },
+  { label: "ICEM 2026", to: "/icem-2026" },
   { label: "Research", to: "/research" },
   { label: "Important Links", to: "/links" },
 ];
@@ -104,11 +107,7 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        <button
-          className="lg:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
+        <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X /> : <Menu />}
         </button>
       </div>

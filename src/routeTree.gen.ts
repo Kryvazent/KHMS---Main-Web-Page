@@ -16,13 +16,17 @@ import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PatientEducationRouteImport } from './routes/patient-education'
 import { Route as LinksRouteImport } from './routes/links'
+import { Route as InnovativeTeachingRouteImport } from './routes/innovative-teaching'
+import { Route as Icem2026RouteImport } from './routes/icem-2026'
 import { Route as FirstAidRouteImport } from './routes/first-aid'
+import { Route as EmDiariesRouteImport } from './routes/em-diaries'
 import { Route as ElectivesRouteImport } from './routes/electives'
 import { Route as DisasterManagementRouteImport } from './routes/disaster-management'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AiAppsRouteImport } from './routes/ai-apps'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InnovativeTeachingMethodIdRouteImport } from './routes/innovative-teaching.$methodId'
 
 const WorkshopsRoute = WorkshopsRouteImport.update({
   id: '/workshops',
@@ -59,9 +63,24 @@ const LinksRoute = LinksRouteImport.update({
   path: '/links',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InnovativeTeachingRoute = InnovativeTeachingRouteImport.update({
+  id: '/innovative-teaching',
+  path: '/innovative-teaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Icem2026Route = Icem2026RouteImport.update({
+  id: '/icem-2026',
+  path: '/icem-2026',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FirstAidRoute = FirstAidRouteImport.update({
   id: '/first-aid',
   path: '/first-aid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmDiariesRoute = EmDiariesRouteImport.update({
+  id: '/em-diaries',
+  path: '/em-diaries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ElectivesRoute = ElectivesRouteImport.update({
@@ -94,6 +113,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InnovativeTeachingMethodIdRoute =
+  InnovativeTeachingMethodIdRouteImport.update({
+    id: '/$methodId',
+    path: '/$methodId',
+    getParentRoute: () => InnovativeTeachingRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -102,7 +127,10 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/disaster-management': typeof DisasterManagementRoute
   '/electives': typeof ElectivesRoute
+  '/em-diaries': typeof EmDiariesRoute
   '/first-aid': typeof FirstAidRoute
+  '/icem-2026': typeof Icem2026Route
+  '/innovative-teaching': typeof InnovativeTeachingRouteWithChildren
   '/links': typeof LinksRoute
   '/patient-education': typeof PatientEducationRoute
   '/research': typeof ResearchRoute
@@ -110,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/social-services': typeof SocialServicesRoute
   '/teaching': typeof TeachingRoute
   '/workshops': typeof WorkshopsRoute
+  '/innovative-teaching/$methodId': typeof InnovativeTeachingMethodIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -118,7 +147,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/disaster-management': typeof DisasterManagementRoute
   '/electives': typeof ElectivesRoute
+  '/em-diaries': typeof EmDiariesRoute
   '/first-aid': typeof FirstAidRoute
+  '/icem-2026': typeof Icem2026Route
+  '/innovative-teaching': typeof InnovativeTeachingRouteWithChildren
   '/links': typeof LinksRoute
   '/patient-education': typeof PatientEducationRoute
   '/research': typeof ResearchRoute
@@ -126,6 +158,7 @@ export interface FileRoutesByTo {
   '/social-services': typeof SocialServicesRoute
   '/teaching': typeof TeachingRoute
   '/workshops': typeof WorkshopsRoute
+  '/innovative-teaching/$methodId': typeof InnovativeTeachingMethodIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -135,7 +168,10 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/disaster-management': typeof DisasterManagementRoute
   '/electives': typeof ElectivesRoute
+  '/em-diaries': typeof EmDiariesRoute
   '/first-aid': typeof FirstAidRoute
+  '/icem-2026': typeof Icem2026Route
+  '/innovative-teaching': typeof InnovativeTeachingRouteWithChildren
   '/links': typeof LinksRoute
   '/patient-education': typeof PatientEducationRoute
   '/research': typeof ResearchRoute
@@ -143,6 +179,7 @@ export interface FileRoutesById {
   '/social-services': typeof SocialServicesRoute
   '/teaching': typeof TeachingRoute
   '/workshops': typeof WorkshopsRoute
+  '/innovative-teaching/$methodId': typeof InnovativeTeachingMethodIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -153,7 +190,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/disaster-management'
     | '/electives'
+    | '/em-diaries'
     | '/first-aid'
+    | '/icem-2026'
+    | '/innovative-teaching'
     | '/links'
     | '/patient-education'
     | '/research'
@@ -161,6 +201,7 @@ export interface FileRouteTypes {
     | '/social-services'
     | '/teaching'
     | '/workshops'
+    | '/innovative-teaching/$methodId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -169,7 +210,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/disaster-management'
     | '/electives'
+    | '/em-diaries'
     | '/first-aid'
+    | '/icem-2026'
+    | '/innovative-teaching'
     | '/links'
     | '/patient-education'
     | '/research'
@@ -177,6 +221,7 @@ export interface FileRouteTypes {
     | '/social-services'
     | '/teaching'
     | '/workshops'
+    | '/innovative-teaching/$methodId'
   id:
     | '__root__'
     | '/'
@@ -185,7 +230,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/disaster-management'
     | '/electives'
+    | '/em-diaries'
     | '/first-aid'
+    | '/icem-2026'
+    | '/innovative-teaching'
     | '/links'
     | '/patient-education'
     | '/research'
@@ -193,6 +241,7 @@ export interface FileRouteTypes {
     | '/social-services'
     | '/teaching'
     | '/workshops'
+    | '/innovative-teaching/$methodId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -202,7 +251,10 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DisasterManagementRoute: typeof DisasterManagementRoute
   ElectivesRoute: typeof ElectivesRoute
+  EmDiariesRoute: typeof EmDiariesRoute
   FirstAidRoute: typeof FirstAidRoute
+  Icem2026Route: typeof Icem2026Route
+  InnovativeTeachingRoute: typeof InnovativeTeachingRouteWithChildren
   LinksRoute: typeof LinksRoute
   PatientEducationRoute: typeof PatientEducationRoute
   ResearchRoute: typeof ResearchRoute
@@ -263,11 +315,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LinksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/innovative-teaching': {
+      id: '/innovative-teaching'
+      path: '/innovative-teaching'
+      fullPath: '/innovative-teaching'
+      preLoaderRoute: typeof InnovativeTeachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/icem-2026': {
+      id: '/icem-2026'
+      path: '/icem-2026'
+      fullPath: '/icem-2026'
+      preLoaderRoute: typeof Icem2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/first-aid': {
       id: '/first-aid'
       path: '/first-aid'
       fullPath: '/first-aid'
       preLoaderRoute: typeof FirstAidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/em-diaries': {
+      id: '/em-diaries'
+      path: '/em-diaries'
+      fullPath: '/em-diaries'
+      preLoaderRoute: typeof EmDiariesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/electives': {
@@ -312,8 +385,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/innovative-teaching/$methodId': {
+      id: '/innovative-teaching/$methodId'
+      path: '/$methodId'
+      fullPath: '/innovative-teaching/$methodId'
+      preLoaderRoute: typeof InnovativeTeachingMethodIdRouteImport
+      parentRoute: typeof InnovativeTeachingRoute
+    }
   }
 }
+
+interface InnovativeTeachingRouteChildren {
+  InnovativeTeachingMethodIdRoute: typeof InnovativeTeachingMethodIdRoute
+}
+
+const InnovativeTeachingRouteChildren: InnovativeTeachingRouteChildren = {
+  InnovativeTeachingMethodIdRoute: InnovativeTeachingMethodIdRoute,
+}
+
+const InnovativeTeachingRouteWithChildren =
+  InnovativeTeachingRoute._addFileChildren(InnovativeTeachingRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -322,7 +413,10 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DisasterManagementRoute: DisasterManagementRoute,
   ElectivesRoute: ElectivesRoute,
+  EmDiariesRoute: EmDiariesRoute,
   FirstAidRoute: FirstAidRoute,
+  Icem2026Route: Icem2026Route,
+  InnovativeTeachingRoute: InnovativeTeachingRouteWithChildren,
   LinksRoute: LinksRoute,
   PatientEducationRoute: PatientEducationRoute,
   ResearchRoute: ResearchRoute,
