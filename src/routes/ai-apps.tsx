@@ -143,6 +143,8 @@ function AppLinkCard({ link }: { link: (typeof appLinks)[keyof typeof appLinks] 
   return (
     <a
       href={link.href}
+      target={link.isLive ? "_blank" : undefined}
+      rel={link.isLive ? "noreferrer" : undefined}
       aria-disabled={!link.isLive}
       onClick={(event) => {
         if (!link.isLive) event.preventDefault();
