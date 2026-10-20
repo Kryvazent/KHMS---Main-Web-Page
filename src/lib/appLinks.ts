@@ -4,6 +4,7 @@ export type AppLink = {
   isLive: boolean;
   status: string;
   description: string;
+  download?: boolean;
 };
 
 export const appLinks = {
@@ -16,9 +17,9 @@ export const appLinks = {
   },
   firstAidApp: {
     label: "First Aid App",
-    href: "#",
-    isLive: false,
-    status: "Link pending",
-    description: "Placeholder for the First Aid app. Replace the href when the final URL is ready.",
+    href: "/download-app",
+    isLive: true,
+    status: "Try the app",
+    description: "Try the Android app now or scan the QR code to download it.",
   },
 } satisfies Record<string, AppLink>;

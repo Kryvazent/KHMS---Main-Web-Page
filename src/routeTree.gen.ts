@@ -21,6 +21,7 @@ import { Route as Icem2026RouteImport } from './routes/icem-2026'
 import { Route as FirstAidRouteImport } from './routes/first-aid'
 import { Route as EmDiariesRouteImport } from './routes/em-diaries'
 import { Route as ElectivesRouteImport } from './routes/electives'
+import { Route as DownloadAppRouteImport } from './routes/download-app'
 import { Route as DisasterManagementRouteImport } from './routes/disaster-management'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AiAppsRouteImport } from './routes/ai-apps'
@@ -88,6 +89,11 @@ const ElectivesRoute = ElectivesRouteImport.update({
   path: '/electives',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DownloadAppRoute = DownloadAppRouteImport.update({
+  id: '/download-app',
+  path: '/download-app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DisasterManagementRoute = DisasterManagementRouteImport.update({
   id: '/disaster-management',
   path: '/disaster-management',
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/ai-apps': typeof AiAppsRoute
   '/contact': typeof ContactRoute
   '/disaster-management': typeof DisasterManagementRoute
+  '/download-app': typeof DownloadAppRoute
   '/electives': typeof ElectivesRoute
   '/em-diaries': typeof EmDiariesRoute
   '/first-aid': typeof FirstAidRoute
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/ai-apps': typeof AiAppsRoute
   '/contact': typeof ContactRoute
   '/disaster-management': typeof DisasterManagementRoute
+  '/download-app': typeof DownloadAppRoute
   '/electives': typeof ElectivesRoute
   '/em-diaries': typeof EmDiariesRoute
   '/first-aid': typeof FirstAidRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/ai-apps': typeof AiAppsRoute
   '/contact': typeof ContactRoute
   '/disaster-management': typeof DisasterManagementRoute
+  '/download-app': typeof DownloadAppRoute
   '/electives': typeof ElectivesRoute
   '/em-diaries': typeof EmDiariesRoute
   '/first-aid': typeof FirstAidRoute
@@ -189,6 +198,7 @@ export interface FileRouteTypes {
     | '/ai-apps'
     | '/contact'
     | '/disaster-management'
+    | '/download-app'
     | '/electives'
     | '/em-diaries'
     | '/first-aid'
@@ -209,6 +219,7 @@ export interface FileRouteTypes {
     | '/ai-apps'
     | '/contact'
     | '/disaster-management'
+    | '/download-app'
     | '/electives'
     | '/em-diaries'
     | '/first-aid'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/ai-apps'
     | '/contact'
     | '/disaster-management'
+    | '/download-app'
     | '/electives'
     | '/em-diaries'
     | '/first-aid'
@@ -250,6 +262,7 @@ export interface RootRouteChildren {
   AiAppsRoute: typeof AiAppsRoute
   ContactRoute: typeof ContactRoute
   DisasterManagementRoute: typeof DisasterManagementRoute
+  DownloadAppRoute: typeof DownloadAppRoute
   ElectivesRoute: typeof ElectivesRoute
   EmDiariesRoute: typeof EmDiariesRoute
   FirstAidRoute: typeof FirstAidRoute
@@ -350,6 +363,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ElectivesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/download-app': {
+      id: '/download-app'
+      path: '/download-app'
+      fullPath: '/download-app'
+      preLoaderRoute: typeof DownloadAppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/disaster-management': {
       id: '/disaster-management'
       path: '/disaster-management'
@@ -412,6 +432,7 @@ const rootRouteChildren: RootRouteChildren = {
   AiAppsRoute: AiAppsRoute,
   ContactRoute: ContactRoute,
   DisasterManagementRoute: DisasterManagementRoute,
+  DownloadAppRoute: DownloadAppRoute,
   ElectivesRoute: ElectivesRoute,
   EmDiariesRoute: EmDiariesRoute,
   FirstAidRoute: FirstAidRoute,
