@@ -329,8 +329,9 @@ function AppLinkPill({ link }: { link: (typeof appLinks)[keyof typeof appLinks] 
   return (
     <a
       href={link.href}
-      target={link.isLive ? "_blank" : undefined}
-      rel={link.isLive ? "noreferrer" : undefined}
+      target={link.href.startsWith("http") ? "_blank" : undefined}
+      rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+      download={link.download || undefined}
       aria-disabled={!link.isLive}
       onClick={(event) => {
         if (!link.isLive) event.preventDefault();

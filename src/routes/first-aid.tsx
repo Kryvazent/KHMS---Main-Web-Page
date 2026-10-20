@@ -135,11 +135,12 @@ function FirstAidAppBanner() {
           </p>
           <h2 className="mt-2 text-2xl font-black tracking-tight">Quick app access</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-            The app button is ready to connect when the final First Aid app URL is available.
+            Download the Android First Aid app installer to your device.
           </p>
         </div>
         <a
           href={link.href}
+          download={link.download || undefined}
           aria-disabled={!link.isLive}
           onClick={(event) => {
             if (!link.isLive) event.preventDefault();

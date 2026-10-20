@@ -123,8 +123,7 @@ function AppLinksPanel() {
           </p>
           <h2 className="mt-2 text-2xl font-black tracking-tight">EMerge Apps</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-            Quick access buttons are ready for the external app and First Aid app once the final
-            URLs are available.
+            Open the external EMerge app or download the Android First Aid app.
           </p>
         </div>
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-navy)] text-white">
@@ -143,8 +142,9 @@ function AppLinkCard({ link }: { link: (typeof appLinks)[keyof typeof appLinks] 
   return (
     <a
       href={link.href}
-      target={link.isLive ? "_blank" : undefined}
-      rel={link.isLive ? "noreferrer" : undefined}
+      target={link.href.startsWith("http") ? "_blank" : undefined}
+      rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+      download={link.download || undefined}
       aria-disabled={!link.isLive}
       onClick={(event) => {
         if (!link.isLive) event.preventDefault();
